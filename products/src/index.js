@@ -7,4 +7,5 @@ for (let i = 0; i < 3; i++) {
   products += `<div>${name}</div>`;
 }
 
-console.log(products);
+const el = document.getElementById("dev-products");
+el.innerHTML = products;
