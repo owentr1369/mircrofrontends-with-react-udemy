@@ -17,3 +17,5 @@ if (process.env.NODE_ENV === "development") {
     mount(el);
   }
 }
+
+export { mount };
