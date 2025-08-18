@@ -1,3 +1,8 @@
 import React from "react";
+import { mount } from "marketing/MarketingApp";
 
-export default () => <h1>Hi there</h1>;
+console.log(mount);
+
+export default () => {
+  return <h1>Hi there!</h1>;
+};
