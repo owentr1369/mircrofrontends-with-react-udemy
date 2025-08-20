@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
@@ -12,10 +12,13 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     });
 
   if (onNavigate) {
-    history.listen(onNavigate);
+    history.listen((update) => {
+      onNavigate({ pathname: update.location.pathname });
+    });
   }
 
-  ReactDOM.render(<App history={history} />, el);
+  const root = createRoot(el);
+  root.render(<App history={history} />);
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
